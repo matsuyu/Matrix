@@ -12,6 +12,7 @@ def product(matrix1,matrix2):
                 s+=matrix1[i][k]*matrix2[k][j]
             print(s,end=' ')
         print()
+        
                 
 
 
@@ -19,62 +20,107 @@ import random
 print("Matrix 1")
 print("Enter m:",end='')
 m1 = input()
-if m1=='-1':
-    print("Bye")
-    quit()
-while not m1.isdigit():
-    print("Cannot! Try again.")
-    print("Enter m:",end='')
-    m1=input()
+invalid = True
+while invalid:
+    invalid = False
     if m1=='-1':
         print("Bye")
         quit()
+    if not m1.isdigit():
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter m:",end='')
+        m1=input()
+        continue
+    m1 = int(m1)
+    if m1<1 or m1>5:
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter m:",end='')
+        m1=input()
+        continue
+    
 print("Enter n:",end='')
 n1 = input()
-if n1=='-1':
-    print("Bye")
-    quit()
-while not n1.isdigit():
-    print("Cannot! Try again.")
-    print("Enter n:",end='')
-    n1=input()
+invalid = True
+while invalid:
+    invalid = False
     if n1=='-1':
         print("Bye")
         quit()
+    if not n1.isdigit():
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter n:",end='')
+        n1=input()
+        continue
+    n1 = int(n1)
+    if n1<1 or n1>5:
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter n:",end='')
+        n1=input()
+        continue
 
 print("Matrix 2")
 print("Enter m:",end='')
 m2= input()
-if m2=='-1':
-    print("Bye")
-    quit()
-while not m2.isdigit() or (m2!=n1 and m2!=m1):
-    print("Cannot! Try again.")
-    print("Enter m:",end='')
-    m2=input()
+invalid = True
+while invalid:
+    invalid = False
     if m2=='-1':
         print("Bye")
         quit()
+    if not m2.isdigit():
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter m:",end='')
+        m2=input()
+        continue
+    m2 = int(m2)
+    if m2<1 or m2>5:
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter m:",end='')
+        m2=input()
+        continue
+    if m2!=n1 and m2!=m1:
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter m:",end='')
+        m2=input()
+        continue
 print("Enter n:",end='')
 n2 = input()
-if n2=='-1':
-    print("Bye")
-    quit()
-while not n2.isdigit() or not ((n2==n1 and m2==m1) or (n2==m1 and m2==n1)):
-    print("Cannot! Try again.")
-    print("Enter n:",end='')
-    n2=input()
+invalid = True
+while invalid:
+    invalid = False
     if n2=='-1':
         print("Bye")
         quit()
-n1=int(n1)
-m1=int(m1)
+    if not n2.isdigit():
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter n:",end='')
+        n2=input()
+        continue
+    n2 = int(n2)
+    if n2<1 or n2>5:
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter n:",end='')
+        n2=input()
+        continue
+    if (not(n1==n2 and m1==m2)) and (not (n1==m2 and m1==n2)):
+        invalid = True
+        print("Cannot! Try again.")
+        print("Enter n:",end='')
+        n2=input()
+        continue
 matrix1=[[] for i in range (m1)]
 for i in range (m1):
     for j in range (n1):
         matrix1[i].append(random.randrange(20))
-n2=int(n2)
-m2=int(m2)
 matrix2=[[] for i in range (m2)]
 for i in range (m2):
     for j in range (n2):
